@@ -19,18 +19,22 @@ public class Deposit implements IAccount {
 
 
     public void withdrawalOperation(int sum) {
+
         balanceOfDeposit -= sum;
     }
 
     public void cancelWithdrawalOperation(int sum) {
+
         balanceOfDeposit += sum;
     }
 
     public void refillOperation(int sum) {
+
         balanceOfDeposit += sum;
     }
 
     public void cancelRefillOperation(int sum) {
+
         balanceOfDeposit -= sum;
     }
 
@@ -51,14 +55,17 @@ public class Deposit implements IAccount {
     }
 
     public boolean withdraw(int sum) {
+
         return balanceOfDeposit >= sum && timeOfDeposit == 0;
     }
 
     public int getAccountId() {
+
         return idOfDeposit;
     }
 
     public int checkBalance() {
+
         return balanceOfDeposit;
     }
 }

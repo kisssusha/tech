@@ -55,8 +55,7 @@ public class CentralBank
                 int f = 0;
                 for ( Integer key : bank.PercentsOfDeposit.percents.keySet() )  {
                 f++;
-                if (balance < key)
-                {
+                if (balance < key) {
                     depositPercent = bank.PercentsOfDeposit.percents.get(key);
                 }
                 if( bank.PercentsOfDeposit.percents.keySet().size() - f == 1 && depositPercent == 0)
@@ -79,7 +78,6 @@ public class CentralBank
         if (!checkClientPassportAndAddress(client) && balance > bank.limitationOfBank && bank.isOperationInAccount(balance)) {
             throw new BanksException("Invalid Withdrawal");
         }
-
         bank.getAccountId(id).withdrawalOperation(balance);
     }
 
@@ -87,24 +85,23 @@ public class CentralBank
         if (!checkClientPassportAndAddress(client) && balance > bank1.limitationOfBank && bank1.isOperationInAccount(balance)) {
             throw new BanksException("Invalid Transfer");
         }
-
         bank1.getAccountId(id1).transferOperation(bank2.getAccountId(id2), balance);
     }
 
     public void cancelRefill(Bank bank, int balance, int id) throws BanksException {
-        var operation = bank.getAccountId(id);
+        IAccount operation = bank.getAccountId(id);
         if (operation == null) throw new BanksException("Refill don't exists");
         operation.cancelRefillOperation(balance);
     }
 
     public void cancelTransfer(Bank bank1, int balance, int id1, Bank bank2, int id2) throws BanksException {
-        var operation = bank1.getAccountId(id1);
+        IAccount operation = bank1.getAccountId(id1);
         if (operation == null) throw new BanksException("Transfer don't exists");
         operation.cancelTransferOperation(bank2.getAccountId(id2), balance);
     }
 
     public void cancelWithdrawal(Bank bank, int balance, int id) throws BanksException {
-        var operation = bank.getAccountId(id);
+        IAccount operation = bank.getAccountId(id);
         if (operation == null) throw new BanksException("Withdrawal don't exists");
         operation.cancelWithdrawalOperation(balance);
     }

@@ -3,7 +3,7 @@ package models;
 import services.IAccount;
 
 public class Debit implements IAccount {
-    private double _benefit = 0;
+    private double benefit = 0;
     public double Percent;
     public int Balance;
     public int Id;
@@ -16,10 +16,12 @@ public class Debit implements IAccount {
 
 
     public void withdrawalOperation(int sum) {
+
         Balance -= sum;
     }
 
     public void cancelWithdrawalOperation(int sum) {
+
         Balance += sum;
     }
 
@@ -29,6 +31,7 @@ public class Debit implements IAccount {
     }
 
     public void cancelRefillOperation(int sum) {
+
         Balance -= sum;
     }
 
@@ -43,20 +46,23 @@ public class Debit implements IAccount {
     }
 
     public void benefitPay(int time) {
-        _benefit = Balance * Percent / 300;
-        Balance += (int) _benefit * time;
-        _benefit = 0;
+        benefit = Balance * Percent / 300;
+        Balance += (int) benefit * time;
+        benefit = 0;
     }
 
     public boolean withdraw(int sum) {
+
         return Balance >= sum;
     }
 
     public int getAccountId() {
+
         return Id;
     }
 
     public int checkBalance() {
+
         return Balance;
     }
 }

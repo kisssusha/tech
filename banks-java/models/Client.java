@@ -12,9 +12,13 @@ public class Client {
 
     public Client(String name, String surname, String address, String passport) throws BanksException {
         Id = _id++;
-        if(name == null) throw new BanksException("Invalid name");
+        if(name == null) {
+            throw new BanksException("Invalid name");
+        }
         nameOfClient = name;
-        if(surname == null) throw new BanksException("Invalid surname");
+        if(surname == null) {
+            throw new BanksException("Invalid surname");
+        }
         surnameOfBank = surname;
         addressOfBank = address;
         passportOfBank = passport;

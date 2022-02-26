@@ -7,7 +7,7 @@ import tools.BanksException;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Bank<delegate> {
+public class Bank {
     public EventManager eventManager;
     private List<Client> clients;
     private List<IAccount> accountsOfClient;
