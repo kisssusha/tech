@@ -7,5 +7,6 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface ShelterDao extends JpaRepository<Shelter, Long> {
     void deleteAllByIdCat(Long catId);
-    void deleteAllByIdOwner(Long ownerTd);
+    void deleteAllByIdOwner(Long ownerId);
+    void deleteAllByIdOwnerAndIdCat(Long ownerId, Long catId);
 }

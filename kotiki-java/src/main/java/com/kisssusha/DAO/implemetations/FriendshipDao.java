@@ -8,4 +8,5 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface FriendshipDao extends JpaRepository<Friendship, Long> {
     void deleteAllByIdCatOrIdFriend(Long idCat, Long idFriend);
+    void deleteAllByIdCatAndIdFriend(Long idCat, Long idFriend);
 }
