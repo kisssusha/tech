@@ -68,6 +68,11 @@ public class KotikiService {
     public List<OwnersDto> getOwners(){
         return ownerDAO.findAll().stream().map(OwnersDto::new).collect(Collectors.toList());
     }
+
+    public OwnersDto findOwnerByLogin(String login) {
+        return new OwnersDto(ownerDAO.findByLogin(login));
+    }
+
     public boolean addOwner(OwnersDto ownersDto){
         ownerDAO.save(new Owners(ownersDto));
         return true;

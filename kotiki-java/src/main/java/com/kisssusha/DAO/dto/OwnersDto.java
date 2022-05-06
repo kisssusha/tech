@@ -9,6 +9,18 @@ public class OwnersDto {
     private Long id;
     private String name;
     private Timestamp date;
+    private String login;
+    private String password;
+    private String role;
+
+    public OwnersDto(Owners owners){
+        this.id = owners.getId();
+        this.date = owners.getDate();
+        this.name = owners.getName();
+        this.login = owners.getLogin();
+        this.password = owners.getPassword();
+        this.role = owners.getRole();
+    }
 
     public OwnersDto(){
     }
@@ -37,10 +49,28 @@ public class OwnersDto {
         this.date = date;
     }
 
-    public OwnersDto(Owners owners){
-        this.id = owners.getId();
-        this.date = owners.getDate();
-        this.name = owners.getName();
+    public String getLogin() {
+        return login;
+    }
+
+    public void setLogin(String login) {
+        this.login = login;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
+    public String getRole() {
+        return role;
+    }
+
+    public void setRole(String role) {
+        this.role = role;
     }
 
     @Override
@@ -48,11 +78,11 @@ public class OwnersDto {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         OwnersDto ownersDto = (OwnersDto) o;
-        return id.equals(ownersDto.id) && name.equals(ownersDto.name) && date.equals(ownersDto.date);
+        return Objects.equals(id, ownersDto.id) && Objects.equals(name, ownersDto.name) && Objects.equals(date, ownersDto.date) && Objects.equals(login, ownersDto.login) && Objects.equals(password, ownersDto.password) && Objects.equals(role, ownersDto.role);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, name, date);
+        return Objects.hash(id, name, date, login, password, role);
     }
 }

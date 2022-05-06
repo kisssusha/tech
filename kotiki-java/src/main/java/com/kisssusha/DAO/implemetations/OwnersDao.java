@@ -6,5 +6,5 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface OwnersDao extends JpaRepository<Owners, Long> {
-
+    Owners findByLogin(String login);
 }

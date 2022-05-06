@@ -19,6 +19,23 @@ public class Owners {
     @Basic
     @Column(name = "date", nullable = true)
     private Timestamp date;
+    @Basic
+    @Column(name = "login", nullable = true, length = -1)
+    private String login;
+    @Basic
+    @Column(name = "password", nullable = true, length = -1)
+    private String password;
+    @Basic
+    @Column(name = "role", nullable = true, length = -1)
+    private String role;
+
+    public Owners(OwnersDto own) {
+        this.date = own.getDate();
+        this.name = own.getName();
+        this.login = own.getLogin();
+        this.password = own.getPassword();
+        this.role = own.getRole();
+    }
 
     public Owners() {
     }
@@ -47,22 +64,40 @@ public class Owners {
         this.date = date;
     }
 
-    public Owners(OwnersDto own) {
-        this.date = own.getDate();
-        this.name = own.getName();
+    public String getLogin() {
+        return login;
+    }
+
+    public void setLogin(String login) {
+        this.login = login;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
+    public String getRole() {
+        return role;
+    }
+
+    public void setRole(String role) {
+        this.role = role;
     }
 
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        Owners that = (Owners) o;
-        return Objects.equals(id, that.id) && Objects.equals(name, that.name)
-                && Objects.equals(date, that.date);
+        Owners owners = (Owners) o;
+        return Objects.equals(id, owners.id) && Objects.equals(name, owners.name) && Objects.equals(date, owners.date) && Objects.equals(login, owners.login) && Objects.equals(password, owners.password) && Objects.equals(role, owners.role);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, name, date);
+        return Objects.hash(id, name, date, login, password, role);
     }
 }
