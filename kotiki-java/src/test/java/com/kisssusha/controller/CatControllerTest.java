@@ -1,13 +1,7 @@
 package com.kisssusha.controller;
 
 import com.kisssusha.DAO.implemetations.CatsDao;
-import com.kisssusha.DAO.implemetations.FriendshipDao;
 import com.kisssusha.DAO.implemetations.OwnersDao;
-import com.kisssusha.DAO.implemetations.ShelterDao;
-import com.kisssusha.DAO.models.Cats;
-import com.kisssusha.DAO.models.Friendship;
-import com.kisssusha.DAO.models.Owners;
-import com.kisssusha.DAO.models.Shelter;
 import com.kisssusha.service.KotikiService;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -25,24 +19,6 @@ public class CatControllerTest {
 
     @MockBean
     OwnersDao ownerDAO;
-
-    @MockBean
-    FriendshipDao friendshipDAO;
-
-    @MockBean
-    ShelterDao shelterDao;
-
-    @MockBean
-    Cats cat;
-
-    @MockBean
-    Owners owner;
-
-    @MockBean
-    Friendship friendship;
-
-    @MockBean
-    Shelter shelter;
 
     @MockBean
     KotikiService service;
