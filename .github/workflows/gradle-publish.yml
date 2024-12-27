@@ -47,15 +47,6 @@ jobs:
     - name: Run tests
       run: ./gradlew test --no-daemon
       working-directory: kotiki-java
-
-    # The USERNAME and TOKEN need to correspond to the credentials environment variables used in
-    # the publishing section of your build.gradle
-    - name: Publish to GitHub Packages
-      run: ./gradlew publish
-      env:
-        USERNAME: ${{ github.actor }}
-        TOKEN: ${{ secrets.GH_TOKEN }}
-      working-directory: kotiki-java
       
   deploy:
     needs: [build-test]
