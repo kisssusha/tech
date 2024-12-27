@@ -52,7 +52,7 @@ public class KotikiServiceTest {
         List<CatsDto> result = kotikiService.getCats();
 
         assertEquals(1, result.size());
-        assertEquals("Cat1", result.getFirst().getName());
+        assertEquals("Cat1", result.get(0).getName());
         verify(catDAO, times(1)).findAll();
     }
 
