@@ -81,6 +81,6 @@ jobs:
       uses: docker/build-push-action@v4
       with:
         context: ./kotiki-java
-        file: ./kotiki-java/Dockerfile
+        file: kotiki-java/Dockerfile
         push: true
         tags: ${{ steps.docker_meta.outputs.tags }}
