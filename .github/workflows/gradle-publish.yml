@@ -80,7 +80,7 @@ jobs:
     - name: Build and push
       uses: docker/build-push-action@v4
       with:
-        context: ./tech
-        file: ./tech/kotiki-java/DockerFile
+        context: ./kotiki-java
+        file: ./kotiki-java/Dockerfile
         push: true
         tags: ${{ steps.docker_meta.outputs.tags }}
